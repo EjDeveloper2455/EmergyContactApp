@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EmergyContactApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Contactos</string>
+    <string name="title_notifications">Historial</string>
+    <string name="btn_abrir_mapa">Abrir mapa</string>
+    <string name="btn_compartir_ubicacion">Compartir ubicacion</string>
+    <string name="no_ubicacion">No se ha encontrado la ubucacion</string>
+</resources>
