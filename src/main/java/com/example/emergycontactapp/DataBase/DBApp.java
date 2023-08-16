@@ -38,11 +38,6 @@ public abstract class DBApp extends RoomDatabase {
                             databaseWriteExecutor.execute(() -> {
                                 EmergyContactDao daoEmergy = INSTANCE.emergyContactDao();
                                 daoEmergy.deleteAll();
-
-                                daoEmergy.insert(new EmergyContact("Elmer","85412365","elmerjmejia55@gmail.com"));
-                                daoEmergy.insert(new EmergyContact("David","85414178","david55@gmail.com"));
-                                daoEmergy.insert(new EmergyContact("Eli","98123365","eli@gmail.com"));
-                                Log.d("msg","llega aqui");
                             });
 
                         }

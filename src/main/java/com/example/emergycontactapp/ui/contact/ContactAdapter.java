@@ -1,4 +1,4 @@
-package com.example.emergycontactapp.ui.dashboard;
+package com.example.emergycontactapp.ui.contact;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,9 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.emergycontactapp.Entities.EmergyContact;
 import com.example.emergycontactapp.databinding.ContactItemBinding;
-import com.example.emergycontactapp.databinding.EmergyContactItemBinding;
 import com.example.emergycontactapp.ui.Contact;
 import com.example.emergycontactapp.ui.OnItemClickListener;
 
@@ -52,7 +50,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             this.binding = binding;
         }
         public void setOnclickListener(Contact emergyContact, OnItemClickListener<Contact> listener){
-            binding.cardContact.setOnClickListener(e -> listener.onItemClick(emergyContact));
+            binding.btnContactAdd.setOnClickListener(e -> listener.onItemClick(emergyContact));
         }
         public ContactItemBinding getBinding(){
             return binding;

@@ -1,21 +1,26 @@
-package com.example.emergycontactapp.ui.dashboard;
+package com.example.emergycontactapp.ui.contact;
 
-import android.os.AsyncTask;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.emergycontactapp.Entities.EmergyContact;
+import com.example.emergycontactapp.R;
 import com.example.emergycontactapp.databinding.FragmentContactsBinding;
 import com.example.emergycontactapp.ui.Contact;
 import com.example.emergycontactapp.ui.OnItemClickListener;
-import com.example.emergycontactapp.ui.home.EmergyContactAdapter;
+import com.example.emergycontactapp.ui.home.EmergyContactViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -23,12 +28,16 @@ import java.util.ArrayList;
 public class ContactFragment extends Fragment implements OnItemClickListener<Contact> {
 
     private FragmentContactsBinding binding;
-    DashboardViewModel dashboardViewModel;
+    ContactViewModel contactViewModel;
     private ContactAdapter adapter;
+    private ActivityResultLauncher<Intent> launcher;
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        contactViewModel =
+                new ViewModelProvider(this).get(ContactViewModel.class);
+
 
         adapter = new ContactAdapter(new ArrayList<>(),this);
 
@@ -39,12 +48,23 @@ public class ContactFragment extends Fragment implements OnItemClickListener<Con
 
         binding.imgBusqueda.setOnClickListener(e -> buscarContactos());
 
+        launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Snackbar.make(binding.cardView, R.string.savedContact,Snackbar.LENGTH_LONG).show();
+                    } else {
+                        Snackbar.make(binding.cardView, R.string.canceled,Snackbar.LENGTH_LONG).show();
+                    }
+                }
+        );
+
         setupRecyclerView();
         return root;
     }
 
     public void buscarContactos(){
-        dashboardViewModel.getDataset(this,this.getContext(),binding).observe(getViewLifecycleOwner(), emergyContacts -> {
+        contactViewModel.getDataset(this,this.getContext(),binding).observe(getViewLifecycleOwner(), emergyContacts -> {
             if(emergyContacts.isEmpty()){
                 Snackbar.make(binding.rvContact,"No hay Contactos de emergencia creados", Snackbar.LENGTH_LONG).show();
             }else{
@@ -67,6 +87,10 @@ public class ContactFragment extends Fragment implements OnItemClickListener<Con
 
     @Override
     public void onItemClick(Contact data) {
-        Snackbar.make(binding.tilBuscar,data.getNombre(),Snackbar.LENGTH_LONG).show();
+        Intent  intent = new Intent(this.getContext(),ContactActivity.class);
+        EmergyContact newEmergyContact = new EmergyContact(data.getNombre(),data.getTelefono(),data.getCorreo());
+        newEmergyContact.setId(-1);
+        intent.putExtra("EmergyContact",newEmergyContact);
+        launcher.launch(intent);
     }
 }

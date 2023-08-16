@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_contacts"
-        android:name="com.example.emergycontactapp.ui.dashboard.ContactFragment"
+        android:name="com.example.emergycontactapp.ui.contact.ContactFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_contacts" />
 

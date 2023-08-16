@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btnFindLocation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment">
@@ -23,6 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/textItemColor"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:hint="Longitud"
             android:textColor="@color/itemColor"
             android:textColorHint="@color/itemColor" />
@@ -38,26 +39,18 @@
         android:textColorHint="@color/itemColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+        app:layout_constraintTop_toBottomOf="@+id/btnFinLocation">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/textItemColor"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:hint="Latitud"
             android:textColor="@color/itemColor"
             android:textColorHint="@color/itemColor" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/gps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnShare"
@@ -87,4 +80,16 @@
         app:layout_constraintEnd_toEndOf="@+id/btnShare"
         app:layout_constraintStart_toStartOf="@+id/btnShare"
         app:layout_constraintTop_toBottomOf="@+id/btnShare" />
+
+    <Button
+        android:id="@+id/btnFinLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/itemColor"
+        app:icon="@drawable/gps"
+        app:iconTint="@color/textItemColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

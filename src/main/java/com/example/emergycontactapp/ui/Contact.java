@@ -1,6 +1,8 @@
 package com.example.emergycontactapp.ui;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String nombre;
     private String telefono;
     private String correo;

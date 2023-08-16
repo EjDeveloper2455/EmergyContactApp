@@ -50,7 +50,7 @@ public class EmergyContactAdapter extends RecyclerView.Adapter<EmergyContactAdap
             this.binding = binding;
         }
         public void setOnclickListener(EmergyContact emergyContact, OnItemClickListener<EmergyContact> listener){
-            binding.cardEmergyContactItem.setOnClickListener(e -> listener.onItemClick(emergyContact));
+            binding.imgEditEmergyContact.setOnClickListener(e -> listener.onItemClick(emergyContact));
         }
         public EmergyContactItemBinding getBinding(){
             return binding;

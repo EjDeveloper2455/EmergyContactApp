@@ -44,8 +44,8 @@ public class NotificationsFragment extends Fragment implements LocationListener 
         binding.btnShare.setEnabled(false);
         binding.btnOpenMap.setEnabled(false);
 
-        binding.btnFindLocation.setOnClickListener(v -> {
-            Snackbar.make(binding.btnFindLocation,"Solicitando ubicacion",Snackbar.LENGTH_LONG).show();
+        binding.btnFinLocation.setOnClickListener(v -> {
+            Snackbar.make(binding.btnFinLocation,"Solicitando ubicacion",Snackbar.LENGTH_LONG).show();
             solicitarPermisosGPS(this.getContext());
         });
 
@@ -103,7 +103,7 @@ public class NotificationsFragment extends Fragment implements LocationListener 
                     useCoarseLocation();
                 }
             }else{
-                Snackbar.make(binding.imageView5,"Ha ocurrido un error al obtener la ubicacion",Snackbar.LENGTH_LONG).show();
+                Snackbar.make(binding.btnFinLocation,"Ha ocurrido un error al obtener la ubicacion",Snackbar.LENGTH_LONG).show();
                 binding.tilLatitud.setVisibility(View.INVISIBLE);
                 binding.tilLongitud.setVisibility(View.INVISIBLE);
                 binding.btnShare.setEnabled(false);
@@ -116,10 +116,7 @@ public class NotificationsFragment extends Fragment implements LocationListener 
 
     @SuppressLint({"ServiceCast", "MissingPermission"})
     private void useCoarseLocation() {
-        //OBTIENE EL SERVICIO DE UBICACIÓN DEL DISPOSITIVO
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-
-        //SOLICITAMOS ACTUALIZAR LA POSICIÓN GPS CON DETERMINADA APROXIMACIÓN (NETWORK_PROVIDER = COARSE_LOCATION = UBICACIÓN APROXIMADA)
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
     }
     @SuppressLint({"ServiceCast", "MissingPermission"})
@@ -134,6 +131,7 @@ public class NotificationsFragment extends Fragment implements LocationListener 
     @Override
     public void onLocationChanged(@NonNull Location location) {
         ubicacion = new Ubicacion(location.getLatitude(), location.getLongitude());
+        Snackbar.make(binding.btnFinLocation,ubicacion.toText(),Snackbar.LENGTH_LONG).show();
 
         binding.tilLatitud.getEditText().setText(ubicacion.getLatitudeStr());
         binding.tilLongitud.getEditText().setText(ubicacion.getLongitudeStr());

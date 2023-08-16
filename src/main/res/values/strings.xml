@@ -6,4 +6,22 @@
     <string name="btn_abrir_mapa">Abrir mapa</string>
     <string name="btn_compartir_ubicacion">Compartir ubicacion</string>
     <string name="no_ubicacion">No se ha encontrado la ubucacion</string>
+    <string name="nuevo_contacto">Nuevo contacto de emergencia</string>
+    <string name="edit_contacto">Editar contacto de emergencia</string>
+    <string name="bbt_limpiar">Limpiar</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_editar">Editar</string>
+    <string name="nombre_contacto">Nombre de contacto</string>
+    <string name="telefono_contacto">Teléfono de contacto</string>
+    <string name="correo_contacto">Dirección de correo eletrónico</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="canceled">Operación cancelada</string>
+    <string name="savedContact">Contacto guardado con éxito</string>
+    <string name="btn_reportar">Reportar insidencia</string>
+    <string name="lbl_my_emergy_contact">Mis contactos de emergencia</string>
+    <string name="tipo_de_insistence">Tipo de Insidencia</string>
+    <string name="insidencia_rapida">Insidencia rápida</string>
+    <string name="insidencia_especifica">Insidencia específica</string>
+    <string name="indicar_tipo_insidencia">Indique el tipo de insicencia que desea realizar</string>
+    <string name="app_mensaje">Indique que aplicación de mensajería desea usar</string>
 </resources>

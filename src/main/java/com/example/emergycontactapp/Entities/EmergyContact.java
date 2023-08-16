@@ -14,7 +14,7 @@ public class EmergyContact implements Serializable{
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
-    private Integer id;
+    private int id;
     @NonNull
     @ColumnInfo(name = "nombre")
     private String nombre;
@@ -32,11 +32,11 @@ public class EmergyContact implements Serializable{
     }
 
     @NonNull
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(@NonNull Integer idCliente) {
+    public void setId(@NonNull int idCliente) {
         this.id = idCliente;
     }
 
