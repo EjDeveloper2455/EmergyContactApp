@@ -188,6 +188,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
     }
 
     public void mostrarPopup(){
+        solicitarPermisosGPS(this.getContext());
         if (ubicacion == null){
             Snackbar.make(binding.rvEmergyContact,getString(R.string.no_ubicacion),Snackbar.LENGTH_LONG).show();
             return;
