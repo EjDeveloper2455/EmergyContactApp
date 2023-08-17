@@ -22,6 +22,8 @@ import com.example.emergycontactapp.ui.Contact;
 import com.example.emergycontactapp.ui.OnItemClickListener;
 import com.example.emergycontactapp.ui.home.EmergyContactViewModel;
 import com.google.android.material.snackbar.Snackbar;
+import android.view.inputmethod.InputMethodManager;
+import android.content.Context;
 
 import java.util.ArrayList;
 
@@ -64,6 +66,7 @@ public class ContactFragment extends Fragment implements OnItemClickListener<Con
     }
 
     public void buscarContactos(){
+        ocultarTeclado(this.getActivity());
         contactViewModel.getDataset(this,this.getContext(),binding).observe(getViewLifecycleOwner(), emergyContacts -> {
             if(emergyContacts.isEmpty()){
                 binding.rvContact.setVisibility(View.GONE);
@@ -95,5 +98,12 @@ public class ContactFragment extends Fragment implements OnItemClickListener<Con
         newEmergyContact.setId(-1);
         intent.putExtra("EmergyContact",newEmergyContact);
         launcher.launch(intent);
+    }
+    public void ocultarTeclado(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

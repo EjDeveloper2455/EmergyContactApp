@@ -56,4 +56,8 @@
     <string name="buscar_por">Buscar por:</string>
     <string name="insidencia_no">"Incidencia no. "</string>
     <string name="cerrar">Cerrar</string>
+    <string name="tipo">Tipo</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
 </resources>

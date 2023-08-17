@@ -23,7 +23,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tipo"
+            android:text="@string/tipo"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mensaje"
+            android:text="@string/mensaje"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Latitud"
+            android:text="@string/latitud"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -62,7 +62,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logintud"
+            android:text="@string/longitud"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fecha"
+            android:text="@string/fecha"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView

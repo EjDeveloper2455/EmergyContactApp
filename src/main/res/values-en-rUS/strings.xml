@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EmergyContactApp</string>
+    <string name="app_name">EmergencyContactApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Contacts</string>
     <string name="title_notifications">Record</string>
@@ -57,4 +57,8 @@
     <string name="buscar_por">Search by:</string>
     <string name="insidencia_no">Incident no.</string>
     <string name="cerrar">Close</string>
+    <string name="tipo">Type</string>
+    <string name="mensaje">Message</string>
+    <string name="latitud">Latitude</string>
+    <string name="longitud">Longitude</string>
 </resources>
