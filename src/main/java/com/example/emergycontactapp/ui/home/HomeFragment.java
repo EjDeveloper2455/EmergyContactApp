@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
 
         adapter = new EmergyContactAdapter(new ArrayList<>(),this);
 
-        ubicacion = new Ubicacion(33,-122);
+        ubicacion = null;
 
         homeViewModel.getDataset().observe(getViewLifecycleOwner(), emergyContacts -> {
             if(emergyContacts.isEmpty()){
@@ -112,7 +112,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
                 }
         );
 
-        //solicitarPermisosGPS(this.getContext());
+        solicitarPermisosGPS(this.getContext());
 
         binding.fabEmergyContact.setOnClickListener(e -> {
             Intent  intent = new Intent(this.getContext(), ContactActivity.class);
@@ -188,7 +188,10 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
     }
 
     public void mostrarPopup(){
-
+        if (ubicacion == null){
+            Snackbar.make(binding.rvEmergyContact,getString(R.string.no_ubicacion),Snackbar.LENGTH_LONG).show();
+            return;
+        }
         // Crear un AlertDialog.Builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
         builder.setTitle(R.string.tipo_de_insistence);
