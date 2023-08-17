@@ -35,6 +35,13 @@ public class ContactActivity extends AppCompatActivity {
             binding.tilNombre.getEditText().setText(emergyContact.getNombre());
             binding.tilTelefono.getEditText().setText(emergyContact.getTelefono());
             binding.tilEmail.getEditText().setText(emergyContact.getCorreo());
+
+            if(emergyContact.getId() == -1)binding.btnEliminar.setVisibility(View.INVISIBLE);
+            else{
+                binding.toolbarContact.setTitle(R.string.edit_contacto);
+            }
+        }else {
+            binding.btnEliminar.setVisibility(View.INVISIBLE);
         }
 
         binding.btnLimpiar.setOnClickListener(e -> {
@@ -43,7 +50,7 @@ public class ContactActivity extends AppCompatActivity {
             binding.tilEmail.getEditText().setText(null);
         });
         binding.btnGuardar.setOnClickListener(e ->{
-            if(emergyContact != null){
+            if(emergyContact != null && !validar()){
                 EmergyContact newEmergyContact = new EmergyContact(binding.tilNombre.getEditText().getText().toString(),
                         binding.tilTelefono.getEditText().getText().toString(),binding.tilEmail.getEditText().getText().toString());
                 if(emergyContact.getId() == -1)emergyContactViewModel.insert(newEmergyContact);
@@ -57,13 +64,20 @@ public class ContactActivity extends AppCompatActivity {
             }
         });
 
-        if(emergyContact.getId() == -1)binding.btnEliminar.setVisibility(View.INVISIBLE);
-        else{
-            binding.toolbarContact.setTitle(R.string.edit_contacto);
-            binding.btnGuardar.setText(R.string.btn_editar);
-        }
         binding.btnEliminar.setOnClickListener(e -> {
             emergyContactViewModel.delete(emergyContact);
+            finish();
         });
+    }
+
+    private boolean validar(){
+        if(binding.tilNombre.getEditText().getText().toString().isEmpty()){
+            binding.tilNombre.setError(getString(R.string.este_campo_es_obligatorio));
+            return true;
+        }else if(binding.tilTelefono.getEditText().getText().toString().isEmpty()){
+            binding.tilTelefono.setError(getString(R.string.este_campo_es_obligatorio));
+            return true;
+        }
+        return false;
     }
 }

@@ -30,9 +30,9 @@ public class Insidencia {
 
     @ColumnInfo(name = "fecha")
     @NonNull
-    private Date fecha;
+    private String fecha;
 
-    public Insidencia(@NonNull String titulo, @NonNull String descripcion, double latitud, double longitud, @NonNull Date fecha) {
+    public Insidencia(@NonNull String titulo, @NonNull String descripcion, double latitud, double longitud, @NonNull String fecha) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.latitud = latitud;
@@ -83,11 +83,11 @@ public class Insidencia {
     }
 
     @NonNull
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(@NonNull Date fecha) {
+    public void setFecha(@NonNull String fecha) {
         this.fecha = fecha;
     }
 }

@@ -28,5 +28,5 @@ public interface InsidenciaDao {
     void delete(Insidencia eliminar);
 
     @Query("select * from insidencia_table order by fecha desc")
-    LiveData<List<EmergyContact>> getInsidencias();
+    LiveData<List<Insidencia>> getInsidencias();
 }

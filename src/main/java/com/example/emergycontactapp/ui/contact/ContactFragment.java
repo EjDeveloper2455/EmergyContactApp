@@ -66,9 +66,12 @@ public class ContactFragment extends Fragment implements OnItemClickListener<Con
     public void buscarContactos(){
         contactViewModel.getDataset(this,this.getContext(),binding).observe(getViewLifecycleOwner(), emergyContacts -> {
             if(emergyContacts.isEmpty()){
-                Snackbar.make(binding.rvContact,"No hay Contactos de emergencia creados", Snackbar.LENGTH_LONG).show();
+                binding.rvContact.setVisibility(View.GONE);
+                binding.tvNoHayContactos.setVisibility(View.VISIBLE);
             }else{
                 adapter.setItems(emergyContacts);
+                binding.rvContact.setVisibility(View.VISIBLE);
+                binding.tvNoHayContactos.setVisibility(View.GONE);
             }
         });
     }

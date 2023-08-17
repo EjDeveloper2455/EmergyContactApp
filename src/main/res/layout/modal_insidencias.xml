@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mensaje_insidencia"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnInsidecia0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia0" />
+
+    <Button
+        android:id="@+id/btnInsidecia2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia2" />
+
+    <Button
+        android:id="@+id/btnInsidecia3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia3" />
+
+    <Button
+        android:id="@+id/btnInsidecia4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia4" />
+
+    <Button
+        android:id="@+id/btnInsidecia5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia5" />
+
+    <Button
+        android:id="@+id/btnInsidecia6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia6" />
+
+    <Button
+        android:id="@+id/btnInsidecia7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia7" />
+
+    <Button
+        android:id="@+id/btnInsidecia8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_incidencia8" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInsidenciaDescriptiva"
+        android:layout_width="377dp"
+        android:layout_height="73dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/til_insidencia_descriptiva" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnInsidenciaDescriptiva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_inisidencia_descriptiva" />
+
+
+</LinearLayout>
