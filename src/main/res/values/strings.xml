@@ -42,10 +42,10 @@
     <string name="mensaje_insicencia0">Hola, me encuentro varado y necesito de tu ayuda, te adjunto mi ubicacion: </string>
     <string name="mensaje_insicencia2">Hola, me he quedado sin gasolina y necesito que vengas a auxiliarme, te adjunto mi ubicacion: </string>
     <string name="mensaje_insicencia3">Hola, Mi vehiculo tiene problemas mecánicos y necesito que vengas a auxiliarme, te adjunto mi ubicacion: </string>
-    <string name="mensaje_insicencia4">Hola, he tenido un accidente de tránsito y neceisto de tu ayuda, te adjunto mi ubicacion: </string>
-    <string name="mensaje_insicencia5">Hola, Me encuentro mal de salud y neceisto de tu ayuda urgente, te adjunto mi ubicacion: </string>
-    <string name="mensaje_insicencia6">Hola, alguien me esta persiguiendo y neceisto de tu ayuda urgente, te adjunto mi ubicacion: </string>
-    <string name="mensaje_insicencia7">Hola, alguien me quiere hacer daño y neceisto de tu ayuda urgente, te adjunto mi ubicacion: </string>
+    <string name="mensaje_insicencia4">Hola, he tenido un accidente de tránsito y necesito de tu ayuda, te adjunto mi ubicacion: </string>
+    <string name="mensaje_insicencia5">Hola, Me encuentro mal de salud y necesito de tu ayuda urgente, te adjunto mi ubicacion: </string>
+    <string name="mensaje_insicencia6">Hola, alguien me esta persiguiendo y necesito de tu ayuda urgente, te adjunto mi ubicacion: </string>
+    <string name="mensaje_insicencia7">Hola, alguien me quiere hacer daño y necesito de tu ayuda urgente, te adjunto mi ubicacion: </string>
     <string name="mensaje_insicencia8">Hola, Estoy en peligro, necesito tu ayuda urgente, te adjunto mi ubicacion: </string>
     <string name="este_campo_es_obligatorio">*Este campo es obligatorio*</string>
     <string name="fecha">Fecha</string>
@@ -60,4 +60,5 @@
     <string name="mensaje">Mensaje</string>
     <string name="latitud">Latitud</string>
     <string name="longitud">Longitud</string>
+    <string name="no_existe_app">No existe una aplicacion instalada para esta opcion</string>
 </resources>

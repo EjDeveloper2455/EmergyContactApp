@@ -172,6 +172,9 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
     public void onLocationChanged(@NonNull Location location) {
         ubicacion = new Ubicacion(location.getLatitude(), location.getLongitude());
         locationManager.removeUpdates(this);
+        binding.btnReportar.setEnabled(true);
+        binding.tilLatitudHome.getEditText().setText(ubicacion.getLatitudeStr());
+        binding.tilLongitudHome.getEditText().setText(ubicacion.getLongitudeStr());
     }
 
     @Override
@@ -188,11 +191,6 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
     }
 
     public void mostrarPopup(){
-        solicitarPermisosGPS(this.getContext());
-        if (ubicacion == null){
-            Snackbar.make(binding.rvEmergyContact,getString(R.string.no_ubicacion),Snackbar.LENGTH_LONG).show();
-            return;
-        }
         // Crear un AlertDialog.Builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
         builder.setTitle(R.string.tipo_de_insistence);
@@ -300,36 +298,47 @@ public class HomeFragment extends Fragment implements OnItemClickListener<Emergy
         });
     }
     private void sendWhatsApp(String numero,String message) {
-        String uriGeo = "geo:" + ubicacion.getLatitud() + "," + ubicacion.getLongitud();
-        Uri locationUri = Uri.parse(uriGeo);
+        try {
+            String uriGeo = "geo:" + ubicacion.getLatitud() + "," + ubicacion.getLongitud();
+            Uri locationUri = Uri.parse(uriGeo);
 
-        Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=" + numero + "&text=" + message+" "+locationUri.toString());
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+            Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=" + numero + "&text=" + message + " " + locationUri.toString());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }catch (Exception exp){
+            Snackbar.make(binding.cardReporteInicidencia, R.string.no_existe_app,Snackbar.LENGTH_LONG).show();
+        }
     }
     private void sendEmail(String destinatario,String body) {
-        String[] recipients = {destinatario};
-        String subject = "Mensaje de insidencia";
+        try {
+            String[] recipients = {destinatario};
+            String subject = "Mensaje de insidencia";
 
-        String uriGeo = "geo:" + ubicacion.getLatitud() + "," + ubicacion.getLongitud();
-        Uri locationUri = Uri.parse(uriGeo);
+            String uriGeo = "geo:" + ubicacion.getLatitud() + "," + ubicacion.getLongitud();
+            Uri locationUri = Uri.parse(uriGeo);
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, body+" "+locationUri.toString());
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            intent.putExtra(Intent.EXTRA_TEXT, body + " " + locationUri.toString());
 
-        startActivity(intent);
-
+            startActivity(intent);
+        }catch (Exception exp){
+            Snackbar.make(binding.cardReporteInicidencia, R.string.no_existe_app,Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void sendSMS(String numero,String message) {
-        String uriGeo = "geo:" + ubicacion.getLatitud() + "," + ubicacion.getLongitud();
-        Uri locationUri = Uri.parse(uriGeo);
+        try {
+            String uriGeo = "geo:" + ubicacion.getLatitud() + "," + ubicacion.getLongitud();
+            Uri locationUri = Uri.parse(uriGeo);
 
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(numero, null, message+" "+locationUri.toString(), null, null);
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(numero, null, message + " " + locationUri.toString(), null, null);
+        }catch (Exception exp){
+            Snackbar.make(binding.cardReporteInicidencia, R.string.no_existe_app,Snackbar.LENGTH_LONG).show();
+        }
     }
 
 }

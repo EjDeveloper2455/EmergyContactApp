@@ -61,4 +61,5 @@
     <string name="mensaje">Message</string>
     <string name="latitud">Latitude</string>
     <string name="longitud">Longitude</string>
+    <string name="no_existe_app">There is no application installed for this option</string>
 </resources>
